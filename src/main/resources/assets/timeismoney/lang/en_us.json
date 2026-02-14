@@ -1,0 +1,13 @@
+{
+  "itemGroup.timeismoney": "Example Mod Tab",
+  "block.timeismoney.example_block": "Example Block",
+  "item.timeismoney.example_item": "Example Item",
+
+  "timeismoney.configuration.title": "TimeIsMoney Configs",
+  "timeismoney.configuration.section.timeismoney.common.toml": "TimeIsMoney Configs",
+  "timeismoney.configuration.section.timeismoney.common.toml.title": "TimeIsMoney Configs",
+  "timeismoney.configuration.items": "Item List",
+  "timeismoney.configuration.logDirtBlock": "Log Dirt Block",
+  "timeismoney.configuration.magicNumberIntroduction": "Magic Number Text",
+  "timeismoney.configuration.magicNumber": "Magic Number"
+}
