@@ -2,6 +2,7 @@ package com.lightsoul.timeismoney;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -11,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public final class PaydayService {
 
-    private int ticksUntilPayday = rollNextDelayTick();
+    private int ticksUntilPayday = -1;
     private final AFKTracker afkTracker;
 
     public PaydayService(AFKTracker afkTracker) {
@@ -21,7 +22,10 @@ public final class PaydayService {
     @SubscribeEvent
     public void onServerTick(ServerTickEvent.Post event) {
         MinecraftServer server = event.getServer();
-
+        if (ticksUntilPayday < 0) {
+            ticksUntilPayday = rollNextDelayTick();
+            return;
+        }
         if (--ticksUntilPayday > 0) return;
 
         payActivePlayers(server);
@@ -49,5 +53,14 @@ public final class PaydayService {
 
         int minutes = ThreadLocalRandom.current().nextInt(min, max + 1);
         return minutes * 60 * 20;
+    }
+
+    private static void claimRewards(Player player) {
+        //player can ask for his rewards
+    }
+
+    private static void queueRewards(MinecraftServer server)
+    {
+        //server can put rewards in a queue for the player.
     }
 }

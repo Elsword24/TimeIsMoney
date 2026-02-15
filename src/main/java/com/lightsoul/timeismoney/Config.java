@@ -24,6 +24,7 @@ public final class Config {
     public static final ModConfigSpec.IntValue PAY_MAX_MINUTES;
     public static final ModConfigSpec.IntValue PAY_AMOUNT;
     public static final ModConfigSpec.IntValue AFK_MINUTES;
+    public static final ModConfigSpec.IntValue PLAY_MINUTES;
 
     static {
         ModConfigSpec.Builder b = new ModConfigSpec.Builder();
@@ -36,6 +37,10 @@ public final class Config {
 
         b.push("afk");
         AFK_MINUTES = b.comment("AFK treshold in minutes").defineInRange("afk_minutes", 3,1,5);
+        b.pop();
+
+        b.push("playtime");
+        PLAY_MINUTES = b.comment("Player has enough playtime to claim rewards").defineInRange("play_minutes", 15,15,30);
         b.pop();
 
         SPEC = b.build();
