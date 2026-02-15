@@ -16,6 +16,7 @@ public final class AFKTracker {
         double x,y,z;
         float yaw,pitch;
         boolean afk;
+        //UUID playerID; Keep track of player between relaunch
     }
 
     private final Map<UUID,Activity> data = new ConcurrentHashMap<>();

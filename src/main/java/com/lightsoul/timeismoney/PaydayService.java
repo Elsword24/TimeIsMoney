@@ -41,7 +41,7 @@ public final class PaydayService {
 
             sp.getInventory().add(new ItemStack(Items.EMERALD, amount));
             sp.sendSystemMessage(net.minecraft.network.chat.Component.literal(
-                    "[TimeIsMoney] Payday! You got " + amount + " emeralds"
+                    "[TimeIsMoney] Payday! " + sp.getScoreboardName() + " received " + amount + " emeralds"
             ));
         }
     }
@@ -63,4 +63,6 @@ public final class PaydayService {
     {
         //server can put rewards in a queue for the player.
     }
+
+
 }
